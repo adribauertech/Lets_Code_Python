@@ -58,3 +58,5 @@ data_atual = datetime.now()
 idade_usuario = (data_atual - data_nascimento).days
 
 print(idade_usuario)
+
+# Novo teste
