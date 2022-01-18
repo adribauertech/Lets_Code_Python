@@ -53,10 +53,32 @@ from datetime import datetime
 
 data_nascimento = input('Digite a sua data de nascimento: ')
 
-data_nascimento = datetime.strptime(data_nascimento, '%d/%m/%Y').date()
-data_atual = datetime.now()
-idade_usuario = (data_atual - data_nascimento).days
+ano_atual = 2022
+mes_atual = 1
+dia_atual = 18
 
-print(idade_usuario)
+data_aux = data_nascimento.split('/')
+dia_nascimento = int(data_aux[0])
+mes_nascimento = int(data_aux[1])
+ano_nascimento = int(data_aux[2])
 
-# Novo teste
+idade = ano_atual - ano_nascimento
+
+if mes_atual < mes_nascimento or (mes_atual == mes_nascimento and dia_atual < dia_nascimento):
+    idade -= 1
+
+podeVotar = False
+podeDirigir = False
+podeSerPresidente = False
+
+if idade >= 35:
+    podeVotar = True
+    podeDirigir = True
+    podeSerPresidente = True
+elif idade >= 18:
+    podeVotar = True
+    podeDirigir = True
+elif idade >= 16:
+    podeVotar = True
+
+print(f'Pode votar: {podeVotar}, Pode dirigir: {podeDirigir}, Pode ser candidato a presidente: {podeSerPresidente}')
