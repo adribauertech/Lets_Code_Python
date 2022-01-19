@@ -82,3 +82,69 @@ elif idade >= 16:
     podeVotar = True
 
 print(f'Pode votar: {podeVotar}, Pode dirigir: {podeDirigir}, Pode ser candidato a presidente: {podeSerPresidente}')
+
+
+#5. Peça os dados de altura e diâmetro, e calcule o volume do cilindro com 4 casas decimais de aproximação.
+# π r² h
+
+import math
+
+val_altura = -1
+val_diametro = -1
+
+while val_altura < 0:
+    val_altura = float(input('Digite a altura do cilindro (cm): '))
+    
+while val_diametro < 0:
+    val_diametro = float(input('Digite o diametro (cm): '))
+    
+val_raio = val_diametro / 2
+
+val_volume = math.pi * (val_raio**2) * val_altura
+    
+print(f'Volume: {val_volume:,.4f}')
+
+# 6. Crie um menu repetitivo que sempre pergunte `[a]dicionar, [s]ubtrair, [m]ostrar resultado ou [t]erminar o programa`. 
+# Quando escolhido um dos primeiros itens, adicione ou subtraia o valor informado posteriormente; 
+# quando escolhido o terceiro item, mostre o resultado; e quando escolhido o último, pare de repetir o menu.
+
+def exibir_menu():
+     print('[a]dicionar')
+     print('[s]ubtrair')
+     print('[m]ostrar resultado')
+     print('[t]erminar o programa)')
+
+resultado = 'Nenhuma operaçao feita ainda'
+while True:
+    exibir_menu
+    opcao_selecionada = input('Digite a opção desejada: ')
+    
+    if opcao_selecionada == 't':
+        print('Saindo....')
+        break
+    elif opcao_selecionada == 'a':
+        numero1 = float(input('Digite o primeiro numero: '))
+        numero2 = float(input('Digite o segundo numero: '))
+        resultado = numero1 + numero2
+    elif opcao_selecionada == 's':
+        numero1 = float(input('Digite o primeiro numero: '))
+        numero2 = float(input('Digite o segundo numero: '))
+        resultado = numero1 - numero2
+    elif opcao_selecionada == 'm':
+        print(f'Resultado: {resultado: >10}')
+    else:
+        print('Opcao invalida')
+        
+#7. Defina uma string e retorne a reversa dela (sem usar o método `.reverse()`)
+
+def funcao_inverter_string(palavra):
+    tamanho = len(palavra)-1
+    inverso = ''
+    
+    while tamanho > -1:
+        inverso = inverso + palavra[tamanho]
+        tamanho-=1
+        
+    return  inverso
+    
+print(funcao_inverter_string("Maria Antonieta"))
